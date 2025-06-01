@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emotion Check-In</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col items-center justify-start py-10 px-4">
+
+  <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">How are you feeling today?</h1>
+
+  <div class="flex gap-4 flex-wrap justify-center mb-6" role="radiogroup" aria-label="Select your mood">
+    <button class="mood-button transition transform" data-mood="😊" role="radio" aria-checked="false" tabindex="0" aria-label="Happy">😊</button>
+    <button class="mood-button transition transform" data-mood="😔" role="radio" aria-checked="false" tabindex="-1" aria-label="Sad">😔</button>
+    <button class="mood-button transition transform" data-mood="😡" role="radio" aria-checked="false" tabindex="-1" aria-label="Angry">😡</button>
+    <button class="mood-button transition transform" data-mood="😴" role="radio" aria-checked="false" tabindex="-1" aria-label="Sleepy">😴</button>
+    <button class="mood-button transition transform" data-mood="😕" role="radio" aria-checked="false" tabindex="-1" aria-label="Confused">😕</button>
+  </div>
+
+  <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
+    <textarea id="thoughts" class="w-full border border-gray-300 rounded p-3 mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Want to add a note?" rows="4" aria-label="Add a note"></textarea>
+    
+    <div class="flex flex-col sm:flex-row gap-3">
+      <button class="save flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded font-semibold transition" aria-live="polite">Save Entry</button>
+      <button id="clear" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 py-3 rounded font-semibold transition">Clear</button>
+    </div>
+    
+    <p id="confirmation" class="mt-3 text-green-600 font-medium hidden" role="alert" aria-live="assertive"></p>
+  </div>
+
+  <div class="w-full max-w-md mt-10" aria-live="polite" aria-atomic="true">
+    <h2 class="text-xl font-semibold text-gray-700 mb-4">Recent Check-ins</h2>
+    <div id="log">
+      <!-- Entries will be rendered here -->
+    </div>
+    <button id="clearAll" class="mt-4 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded font-semibold transition" aria-label="Clear all recent check-ins">Clear All Entries</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
